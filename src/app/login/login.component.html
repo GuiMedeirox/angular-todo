@@ -1,0 +1,10 @@
+
+<small *ngIf="loginIsValid">{{statusMessage}} </small>
+<small *ngIf="!loginIsValid">{{statusMessage}} </small>
+
+<p>username</p>
+<input type="text" name="username" placeholder="username" [(ngModel)]="username">
+<p>password</p>
+<input type="password" name="password" placeholder="password" [(ngModel)]="password">
+<br/>
+<button (click)=tryToLogIn() > Login </button>
