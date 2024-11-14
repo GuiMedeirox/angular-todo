@@ -1,4 +1,4 @@
 
 <p *ngFor="let todo of todoList;"> 
-    {{todo.id}} | {{todo.description}}
+    {{todo.description}} | {{todo.isDone}} | {{todo.dateAssigned | date}}
 </p>

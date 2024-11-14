@@ -29,7 +29,7 @@ export class LoginComponent {
   tryToLogIn():boolean{
     console.log('username: '+this.username);
     console.log('password: ' +this.password);
-   
+    
     if(this.username === "gmx" && this.password === "123"){  
       this.loginIsValid=true; 
       this.statusMessage="valid credentials";    
