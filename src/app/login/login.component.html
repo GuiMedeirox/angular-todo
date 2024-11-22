@@ -1,10 +1,12 @@
+<div class="container">
+   
+    <div class="alert alert-warning" *ngIf="!loginIsValid">{{statusMessage}} </div>
 
-<small *ngIf="loginIsValid">{{statusMessage}} </small>
-<small *ngIf="!loginIsValid">{{statusMessage}} </small>
+    <p>username</p>
+    <input type="text" name="username" placeholder="username" [(ngModel)]="username">
+    <p>password</p>
+    <input type="password" name="password" placeholder="password" [(ngModel)]="password">
+    <br/>
+    <button class="btn btn-success" (click)=tryToLogIn() > Login </button>
 
-<p>username</p>
-<input type="text" name="username" placeholder="username" [(ngModel)]="username">
-<p>password</p>
-<input type="password" name="password" placeholder="password" [(ngModel)]="password">
-<br/>
-<button (click)=tryToLogIn() > Login </button>
+</div>

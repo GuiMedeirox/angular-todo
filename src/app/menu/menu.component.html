@@ -1,0 +1,29 @@
+<header> 
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+
+        <div>
+            <a href="https://www.github.com/GuiMedeirox" class="navbar-brand">My GitHub</a>
+        </div>
+
+        <ul class="navbar-nav" *ngIf="hardcodedAuthenticationService.isUserLoggedIn()">
+            <li> 
+                <a  routerLink="/welcome/gmx" class="nav-link">Welcome Page</a> 
+            </li>
+
+            <li>
+                <a routerLink="/todo" class="nav-link">ToDo List</a>
+            </li>
+        </ul>
+
+        <ul class="navbar-nav navbar-collapse justify-content-end ">
+            <li>
+                <a routerLink="/login" class="nav-link" *ngIf="!hardcodedAuthenticationService.isUserLoggedIn()">Login</a>
+            </li>
+            <li>
+                <a routerLink="/logout" class="nav-link" *ngIf="hardcodedAuthenticationService.isUserLoggedIn()" >Logout</a>
+            </li>
+        </ul>
+
+    </nav>
+
+</header>

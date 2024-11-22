@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { NgIf } from '@angular/common';
 import { Router } from '@angular/router';
+import { HardcodedAuthenticationService } from '../service/hardcoded-authentication.service';
 
 @Component({
   selector: 'app-login',
@@ -21,7 +22,7 @@ export class LoginComponent {
 
   //dependency injection
   //it's mandatory to inform the visibility level
-  constructor(private router: Router){   }
+  constructor(private router: Router, public hardcodedAuthenticationService: HardcodedAuthenticationService){   }
 
   ngOnInit(){}
   
@@ -29,19 +30,15 @@ export class LoginComponent {
   tryToLogIn():boolean{
     console.log('username: '+this.username);
     console.log('password: ' +this.password);
-    
-    if(this.username === "gmx" && this.password === "123"){  
-      this.loginIsValid=true; 
-      this.statusMessage="valid credentials";    
-      console.log("login is valid: " +this.loginIsValid);
-     
+    if(this.hardcodedAuthenticationService.authenticate(this.username, this.password)){
       this.router.navigate(["welcome", this.username]);
-      return true; 
+      return true;
     }
-      this.loginIsValid=false; 
-      this.statusMessage="invalid credentials"; 
-      console.log("login is valid: " +this.loginIsValid);
-      return false; 
+
+    this.loginIsValid=false; 
+    this.statusMessage="invalid credentials"; 
+    console.log("login is valid: " +this.loginIsValid);
+    return false; 
   }
 
 } 

@@ -1,4 +1,25 @@
-
-<p *ngFor="let todo of todoList;"> 
-    {{todo.description}} | {{todo.isDone}} | {{todo.dateAssigned | date}}
-</p>
+<div class="container my-4"> 
+    <table class="table table-striped table-hover table-bordered text-center align-middle">
+        <thead class="table-dark">
+            <tr>
+                <th>Description</th>
+                <th>Status</th>
+                <th>Date Assigned</th>
+            </tr> 
+        </thead>
+        <tbody>
+            <tr *ngFor="let todo of todoList">
+                <td>{{ todo.description }}</td>
+                <td>
+                    <span 
+                        class="badge" 
+                        [class.bg-success]="todo.isDone" 
+                        [class.bg-danger]="!todo.isDone">
+                        {{ todo.isDone ? 'Completed' : 'Pending' }}
+                    </span>
+                </td>
+                <td>{{ todo.dateAssigned | date: 'mediumDate' }}</td>
+            </tr> 
+        </tbody>
+    </table>
+</div>
