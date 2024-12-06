@@ -2,4 +2,13 @@
 
 <br> 
 
+<p> click <button (click)="getWelcomeMessage()"> here </button> to see a different hello world</p>
+
+<div class="container" >
+    <h2 *ngIf="helloCustomMessage" > Here is your custom hello world </h2>
+    <p> {{helloCustomMessage}}</p>
+
+    <div class="container" *ngIf="helloErrorMessage"> {{helloErrorMessage}} </div>
+</div>
+
 <p>here u can access your <a routerLink="/todo">todos</a> </p>

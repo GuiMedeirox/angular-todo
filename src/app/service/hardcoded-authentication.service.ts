@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
 export class HardcodedAuthenticationService {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   authenticate(username:string, password:string):boolean{    
     sessionStorage.setItem('authenticateUser', username);
@@ -20,6 +21,7 @@ export class HardcodedAuthenticationService {
 
   logout():void{
     sessionStorage.removeItem('authenticateUser');
+    // this.router.navigate(["login"]); 
   }
 
 

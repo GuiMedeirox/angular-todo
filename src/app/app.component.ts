@@ -5,6 +5,7 @@ import { WelcomeComponent } from './welcome/welcome.component';
 import { ErrorComponent } from './error/error.component';
 import { FooterComponent } from './footer/footer.component';
 import { MenuComponent } from './menu/menu.component';
+import { HttpClient } from '@angular/common/http';
 
 
 @Component({

@@ -18,7 +18,7 @@ export class LoginComponent {
   username:string = "";
   password:string = "";
   statusMessage:string=""; 
-  loginIsValid:boolean=false; 
+  loginIsValid:boolean=true; 
 
   //dependency injection
   //it's mandatory to inform the visibility level
