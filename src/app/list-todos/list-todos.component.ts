@@ -1,9 +1,10 @@
 import { DatePipe, NgFor, NgIf, UpperCasePipe } from '@angular/common';
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { TodoDataService } from '../service/data/todo-data.service';
 
 export class Todo{
-  constructor(public id: number, public description: string, public isDone:boolean, public dateAssigned: Date){}
+  constructor(public id: number, public description: string, public isDone: boolean, public dateAssigned: Date){}
 }
 
 @Component({
@@ -15,14 +16,20 @@ export class Todo{
 })
 export class ListTodosComponent {
 
-  todoList = [ 
-    new Todo(1,"Learn Angular", false, new Date()),
-    new Todo(1,"Learn Java", true, new Date()),
-    new Todo(1,"Learn Assembly", false, new Date())
-  ]
+  todoList: Todo[] = []; 
 
-  constructor(){ }
+  constructor( /* the visibility modifier is mandatory */ private todoService: TodoDataService){ }
 
-  ngOnInit(){  }
+  ngOnInit(){  
 
+     this.todoService.getAllTodos('gmx').subscribe(
+      (response) => { 
+        this.todoList=response; 
+        console.log(response);
+        
+      },
+      (error) => console.log(error)
+    ); 
+    
+  }
 }
